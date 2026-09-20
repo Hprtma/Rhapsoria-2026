@@ -45,15 +45,34 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="font-sans antialiased relative selection:bg-amber-400 selection:text-slate-900">
+<body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex items-center justify-center selection:bg-amber-500/30 selection:text-amber-200">
+
+    <!-- Ambient Animated Blobs -->
+    <div class="ambient-blob ambient-blob-1"></div>
+    <div class="ambient-blob ambient-blob-2"></div>
+
+    <!-- Floating Melody Notes -->
+    <div class="melody-container">
+        <span class="floating-note note-1">&#9834;</span>
+        <span class="floating-note note-2">&#9835;</span>
+        <span class="floating-note note-3">&#9836;</span>
+        <span class="floating-note note-4">&#9833;</span>
+        <span class="floating-note note-5">&#9835;</span>
+        <span class="floating-note note-6">&#9834;</span>
+        <span class="floating-note note-7">&#9836;</span>
+    </div>
 
     <!-- Cinematic Background Glow -->
     <div class="fixed inset-0 pointer-events-none cinematic-glow z-0"></div>
 
     <main class="relative z-10 flex flex-col w-full">
         <!-- Back Button -->
-        <a href="portal.html" class="absolute top-6 left-6 md:top-10 md:left-10 z-50 flex items-center text-amber-400/80 hover:text-amber-400 transition-colors bg-white/5 px-4 py-2 rounded-full border border-amber-500/20 hover:bg-white/10 backdrop-blur-md">
-            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        <a href="portal.html"
+            class="absolute top-6 left-6 md:top-10 md:left-10 z-50 flex items-center text-amber-400/80 hover:text-amber-400 transition-colors bg-white/5 px-4 py-2 rounded-full border border-amber-500/20 hover:bg-white/10 backdrop-blur-md">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
+                </path>
+            </svg>
             Kembali
         </a>
 
@@ -88,6 +107,45 @@
 
         <!-- The Repertoire (Link Directory) -->
         <section class="w-full flex flex-col">
+
+            <!-- Card Pra BIMARU -->
+            <div class="w-full min-h-screen py-16 snap-center flex items-center justify-center px-4">
+                <article
+                    class="w-full max-w-2xl glass-card bg-white/5 backdrop-blur-md border border-amber-500/30 rounded-2xl p-6 sm:p-8 md:p-12 flex flex-col relative overflow-hidden"
+                    data-aos="zoom-out-up" data-aos-duration="800">
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl"></div>
+
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <div
+                                class="flex items-center gap-2 text-amber-400/80 text-xs font-mono uppercase tracking-wider">
+                                <span class="w-1 h-1 rounded-full bg-amber-500/50"></span>
+                                <time>Pra BIMARU</time>
+                            </div>
+                            <span class="text-4xl text-amber-500/20 font-serif font-bold italic">00</span>
+                        </div>
+                        <h3 class="text-4xl font-serif text-slate-100 mb-4">Pra BIMARU</h3>
+                        <p class="text-slate-300/80 text-base leading-relaxed">
+                            Rangkaian kegiatan dan persiapan awal peserta sebelum hari pelaksanaan BIMARU 2026.
+                        </p>
+                    </div>
+
+                    <div class="mt-auto pt-6 border-t border-white/10">
+                        <a href="https://photos.app.goo.gl/e89jthv7M8kVZb8J9" target="_blank" rel="noopener noreferrer"
+                            class="group flex items-center justify-center w-full px-6 py-4 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/30 font-medium transition-all duration-300 hover:bg-amber-400 hover:text-slate-900 hover:shadow-[0_0_20px_rgba(251,191,36,0.3)]">
+                            <svg class="w-5 h-5 mr-3 transition-transform group-hover:scale-110" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            Buka Album (Google Photos)
+                        </a>
+                    </div>
+                </article>
+            </div>
 
             <!-- Card 1 (Snap Point 2) -->
             <div class="w-full min-h-screen py-16 snap-center flex items-center justify-center px-4">
@@ -170,7 +228,46 @@
                 </article>
             </div>
 
-            <!-- Card 3 & Footer (Snap Point 4) -->
+            <!-- Card 3 -->
+            <div class="w-full min-h-screen py-16 snap-center flex items-center justify-center px-4">
+                <article
+                    class="w-full max-w-2xl glass-card bg-white/5 backdrop-blur-md border border-amber-500/30 rounded-2xl p-6 sm:p-8 md:p-12 flex flex-col relative overflow-hidden"
+                    data-aos="zoom-out-up" data-aos-duration="800">
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl"></div>
+
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <div
+                                class="flex items-center gap-2 text-amber-400/80 text-xs font-mono uppercase tracking-wider">
+                                <span class="w-1 h-1 rounded-full bg-amber-500/50"></span>
+                                <time>16 September 2026</time>
+                            </div>
+                            <span class="text-4xl text-amber-500/20 font-serif font-bold italic">03</span>
+                        </div>
+                        <h3 class="text-4xl font-serif text-slate-100 mb-4">DAY 3</h3>
+                        <p class="text-slate-300/80 text-base leading-relaxed">
+                            Acara Penutupan dengan perkenalan Ormawa dan UKM, dilanjut dengan penampilan.
+                        </p>
+                    </div>
+
+                    <div class="mt-auto pt-6 border-t border-white/10">
+                        <a href="https://photos.app.goo.gl/sQ1uvJFLqFZCBvvQA" target="_blank" rel="noopener noreferrer"
+                            class="group flex items-center justify-center w-full px-6 py-4 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/30 font-medium transition-all duration-300 hover:bg-amber-400 hover:text-slate-900 hover:shadow-[0_0_20px_rgba(251,191,36,0.3)]">
+                            <svg class="w-5 h-5 mr-3 transition-transform group-hover:scale-110" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            Buka Album (Google Photos)
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Card Di Balik Lensa & Footer -->
             <div class="w-full min-h-screen py-16 snap-center flex flex-col justify-between px-4">
                 <div class="flex-grow flex items-center justify-center">
                     <article
@@ -183,18 +280,19 @@
                                 <div
                                     class="flex items-center gap-2 text-amber-400/80 text-xs font-mono uppercase tracking-wider">
                                     <span class="w-1 h-1 rounded-full bg-amber-500/50"></span>
-                                    <time>16 September 2026</time>
+                                    <time>BIMARU 2026</time>
                                 </div>
-                                <span class="text-4xl text-amber-500/20 font-serif font-bold italic">03</span>
+                                <span class="text-4xl text-amber-500/20 font-serif font-bold italic">DL</span>
                             </div>
-                            <h3 class="text-4xl font-serif text-slate-100 mb-4">DAY 3</h3>
+                            <h3 class="text-4xl font-serif text-slate-100 mb-4">Di Balik Lensa</h3>
                             <p class="text-slate-300/80 text-base leading-relaxed">
-                                Acara Penutupan dengan perkenalan Ormawa dan UKM, dilanjut dengan penampilan.
+                                Dokumentasi momen-momen seru dan tak terduga di balik layar pelaksanaan BIMARU 2026.
                             </p>
                         </div>
 
                         <div class="mt-auto pt-6 border-t border-white/10">
-                            <a href="https://photos.app.goo.gl/sQ1uvJFLqFZCBvvQA" target="_blank" rel="noopener noreferrer"
+                            <a href="https://photos.app.goo.gl/id8LdHU4PTaBtLX38" target="_blank"
+                                rel="noopener noreferrer"
                                 class="group flex items-center justify-center w-full px-6 py-4 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/30 font-medium transition-all duration-300 hover:bg-amber-400 hover:text-slate-900 hover:shadow-[0_0_20px_rgba(251,191,36,0.3)]">
                                 <svg class="w-5 h-5 mr-3 transition-transform group-hover:scale-110" fill="none"
                                     stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -231,4 +329,5 @@
         });
     </script>
 </body>
+
 </html>

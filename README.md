@@ -9,6 +9,12 @@ Portal ini dirancang dengan antarmuka yang sinematik dan elegan, memudahkan peng
 2. **Peserta Reguler** - Kumpulan momen mahasiswa reguler.
 3. **Peserta Karyawan** - Momen spesial kelas karyawan.
 
+### ✨ Fitur UI/UX Terbaru
+- **Animasi Ambient Background**: Efek *glow* emas yang melayang halus (Ambient Blobs).
+- **Floating Melody Notes**: Elemen musikal (not balok) yang mengambang di latar belakang sejalan dengan tema "Rhapsoria".
+- **Glassmorphism Interaktif**: Kartu transparan dengan efek *tilt*, *inner-glow*, dan perbesaran otomatis saat kursor diarahkan (*hover*).
+- **Responsive Mobile View**: Penyesuaian jarak vertikal (*padding*) pada perangkat *mobile* untuk memberikan ruang membaca yang nyaman.
+
 ## 🚀 Teknologi yang Digunakan
 
 - **HTML5** & **CSS3**

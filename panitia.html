@@ -45,7 +45,95 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="font-sans antialiased relative selection:bg-amber-400 selection:text-slate-900">
+<body
+    class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex items-center justify-center selection:bg-amber-500/30 selection:text-amber-200">
+
+    <!-- Ambient Animated Blobs -->
+    <div class="ambient-blob ambient-blob-1"></div>
+    <div class="ambient-blob ambient-blob-2"></div>
+
+    <!-- Floating Melody Notes -->
+    <div class="melody-container">
+        <span class="floating-note note-1">&#9834;</span>
+        <span class="floating-note note-2">&#9835;</span>
+        <span class="floating-note note-3">&#9836;</span>
+        <span class="floating-note note-4">&#9833;</span>
+        <span class="floating-note note-5">&#9835;</span>
+        <span class="floating-note note-6">&#9834;</span>
+        <span class="floating-note note-7">&#9836;</span>
+    </div>
+
+    <!-- Login Overlay -->
+    <div id="loginOverlay"
+        class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900 backdrop-blur-xl transition-opacity duration-500">
+        <!-- Back Button for Login -->
+        <a href="portal.html"
+            class="absolute top-6 left-6 md:top-10 md:left-10 z-50 flex items-center text-amber-400/80 hover:text-amber-400 transition-colors bg-white/5 px-4 py-2 rounded-full border border-amber-500/20 hover:bg-white/10 backdrop-blur-md">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
+                </path>
+            </svg>
+            Kembali
+        </a>
+
+        <div
+            class="glass-card bg-white/5 border border-amber-500/30 rounded-2xl p-8 sm:p-12 w-full max-w-sm flex flex-col items-center relative overflow-hidden mx-4">
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl pointer-events-none">
+            </div>
+            <div
+                class="absolute -bottom-10 -left-10 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl pointer-events-none">
+            </div>
+
+            <div class="flex items-center gap-4 mb-6">
+                <div class="h-px w-8 bg-gradient-to-r from-transparent to-amber-400/50"></div>
+                <span class="text-amber-400/80 uppercase tracking-[0.2em] text-xs font-semibold">Akses Khusus</span>
+                <div class="h-px w-8 bg-gradient-to-l from-transparent to-amber-400/50"></div>
+            </div>
+
+            <h2 class="text-3xl font-serif text-amber-400 mb-8 font-bold tracking-wide">PANITIA</h2>
+
+            <form id="loginForm" class="w-full flex flex-col gap-5">
+                <div class="w-full">
+                    <label for="username"
+                        class="block text-slate-400 text-xs uppercase tracking-wider mb-2">Username</label>
+                    <input type="text" id="username"
+                        class="w-full bg-white/5 border border-amber-500/20 text-slate-100 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-400 focus:bg-white/10 transition-all placeholder:text-slate-600"
+                        placeholder="Masukkan username" required autocomplete="off">
+                </div>
+                <div class="w-full mb-2">
+                    <label for="password"
+                        class="block text-slate-400 text-xs uppercase tracking-wider mb-2">Password</label>
+                    <div class="relative">
+                        <input type="password" id="password"
+                            class="w-full bg-white/5 border border-amber-500/20 text-slate-100 rounded-lg px-4 py-3 pr-12 focus:outline-none focus:border-amber-400 focus:bg-white/10 transition-all placeholder:text-slate-600"
+                            placeholder="Masukkan kata sandi" required>
+                        <button type="button" id="togglePassword"
+                            class="absolute inset-y-0 right-0 px-3 flex items-center text-slate-400 hover:text-amber-400 transition-colors"
+                            title="Lihat password">
+                            <svg id="icon-eye" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                                </path>
+                            </svg>
+                            <svg id="icon-eye-off" class="w-5 h-5 hidden" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p id="errorMessage" class="text-red-400 text-xs mt-2 hidden">Username atau password salah.</p>
+                </div>
+                <button type="submit"
+                    class="w-full px-6 py-3 rounded-lg bg-amber-500/20 text-amber-400 border border-amber-500/30 font-medium transition-all duration-300 hover:bg-amber-400 hover:text-slate-900 hover:shadow-[0_0_15px_rgba(251,191,36,0.4)] tracking-wide">
+                    Masuk
+                </button>
+            </form>
+        </div>
+    </div>
 
     <!-- Cinematic Background Glow -->
     <div class="fixed inset-0 pointer-events-none cinematic-glow z-0"></div>
@@ -92,6 +180,84 @@
 
         <!-- The Repertoire (Link Directory) -->
         <section class="w-full flex flex-col">
+
+            <!-- Card Gladi BIMARU -->
+            <div class="w-full min-h-screen py-16 snap-center flex items-center justify-center px-4">
+                <article
+                    class="w-full max-w-2xl glass-card bg-white/5 backdrop-blur-md border border-amber-500/30 rounded-2xl p-6 sm:p-8 md:p-12 flex flex-col relative overflow-hidden"
+                    data-aos="zoom-out-up" data-aos-duration="800">
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl"></div>
+
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <div
+                                class="flex items-center gap-2 text-amber-400/80 text-xs font-mono uppercase tracking-wider">
+                                <span class="w-1 h-1 rounded-full bg-amber-500/50"></span>
+                                <time>Gladi BIMARU</time>
+                            </div>
+                            <span class="text-4xl text-amber-500/20 font-serif font-bold italic">GL</span>
+                        </div>
+                        <h3 class="text-4xl font-serif text-slate-100 mb-4">Gladi BIMARU</h3>
+                        <p class="text-slate-300/80 text-base leading-relaxed">
+                            Momen gladi resik dan persiapan tahap akhir menuju acara puncak BIMARU 2026.
+                        </p>
+                    </div>
+
+                    <div class="mt-auto pt-6 border-t border-white/10">
+                        <a href="https://photos.app.goo.gl/mdPEwMevQPz53Erh8" target="_blank" rel="noopener noreferrer"
+                            class="group flex items-center justify-center w-full px-6 py-4 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/30 font-medium transition-all duration-300 hover:bg-amber-400 hover:text-slate-900 hover:shadow-[0_0_20px_rgba(251,191,36,0.3)]">
+                            <svg class="w-5 h-5 mr-3 transition-transform group-hover:scale-110" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            Buka Album (Google Photos)
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Card Pra BIMARU -->
+            <div class="w-full min-h-screen py-16 snap-center flex items-center justify-center px-4">
+                <article
+                    class="w-full max-w-2xl glass-card bg-white/5 backdrop-blur-md border border-amber-500/30 rounded-2xl p-6 sm:p-8 md:p-12 flex flex-col relative overflow-hidden"
+                    data-aos="zoom-out-up" data-aos-duration="800">
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl"></div>
+
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <div
+                                class="flex items-center gap-2 text-amber-400/80 text-xs font-mono uppercase tracking-wider">
+                                <span class="w-1 h-1 rounded-full bg-amber-500/50"></span>
+                                <time>10 September 2026</time>
+                            </div>
+                            <span class="text-4xl text-amber-500/20 font-serif font-bold italic">00</span>
+                        </div>
+                        <h3 class="text-4xl font-serif text-slate-100 mb-4">Pra BIMARU</h3>
+                        <p class="text-slate-300/80 text-base leading-relaxed">
+                            Rangkaian kegiatan dan persiapan awal panitia sebelum hari pelaksanaan BIMARU 2026.
+                        </p>
+                    </div>
+
+                    <div class="mt-auto pt-6 border-t border-white/10">
+                        <a href="https://photos.app.goo.gl/jbj52VJupB1m1H7Q9" target="_blank" rel="noopener noreferrer"
+                            class="group flex items-center justify-center w-full px-6 py-4 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/30 font-medium transition-all duration-300 hover:bg-amber-400 hover:text-slate-900 hover:shadow-[0_0_20px_rgba(251,191,36,0.3)]">
+                            <svg class="w-5 h-5 mr-3 transition-transform group-hover:scale-110" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            Buka Album (Google Photos)
+                        </a>
+                    </div>
+                </article>
+            </div>
 
             <!-- Card 1 (Snap Point 2) -->
             <div class="w-full min-h-screen py-16 snap-center flex items-center justify-center px-4">
@@ -175,7 +341,47 @@
                 </article>
             </div>
 
-            <!-- Card 3 & Footer (Snap Point 4) -->
+            <!-- Card 3 -->
+            <div class="w-full min-h-screen py-16 snap-center flex items-center justify-center px-4">
+                <article
+                    class="w-full max-w-2xl glass-card bg-white/5 backdrop-blur-md border border-amber-500/30 rounded-2xl p-6 sm:p-8 md:p-12 flex flex-col relative overflow-hidden"
+                    data-aos="zoom-out-up" data-aos-duration="800">
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl"></div>
+
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <div
+                                class="flex items-center gap-2 text-amber-400/80 text-xs font-mono uppercase tracking-wider">
+                                <span>DAY 3</span>
+                                <span class="w-1 h-1 rounded-full bg-amber-500/50"></span>
+                                <time>16 September 2026</time>
+                            </div>
+                            <span class="text-4xl text-amber-500/20 font-serif font-bold italic">03</span>
+                        </div>
+                        <h3 class="text-4xl font-serif text-slate-100 mb-4">DAY 3</h3>
+                        <p class="text-slate-300/80 text-base leading-relaxed">
+                            Acara Penutupan dengan perkenalan Ormawa dan UKM, dilanjut dengan penampilan.
+                        </p>
+                    </div>
+
+                    <div class="mt-auto pt-6 border-t border-white/10">
+                        <a href="https://photos.app.goo.gl/j1FnzBis7Adq9vPQ6" target="_blank" rel="noopener noreferrer"
+                            class="group flex items-center justify-center w-full px-6 py-4 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/30 font-medium transition-all duration-300 hover:bg-amber-400 hover:text-slate-900 hover:shadow-[0_0_20px_rgba(251,191,36,0.3)]">
+                            <svg class="w-5 h-5 mr-3 transition-transform group-hover:scale-110" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            Buka Album (Google Photos)
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Card Di Balik Lensa & Footer -->
             <div class="w-full min-h-screen py-16 snap-center flex flex-col justify-between px-4">
                 <div class="flex-grow flex items-center justify-center">
                     <article
@@ -187,20 +393,19 @@
                             <div class="flex items-center justify-between mb-4">
                                 <div
                                     class="flex items-center gap-2 text-amber-400/80 text-xs font-mono uppercase tracking-wider">
-                                    <span>DAY 3</span>
                                     <span class="w-1 h-1 rounded-full bg-amber-500/50"></span>
-                                    <time>16 September 2026</time>
+                                    <time>BIMARU 2026</time>
                                 </div>
-                                <span class="text-4xl text-amber-500/20 font-serif font-bold italic">03</span>
+                                <span class="text-4xl text-amber-500/20 font-serif font-bold italic">DL</span>
                             </div>
-                            <h3 class="text-4xl font-serif text-slate-100 mb-4">DAY 3</h3>
+                            <h3 class="text-4xl font-serif text-slate-100 mb-4">Di Balik Lensa</h3>
                             <p class="text-slate-300/80 text-base leading-relaxed">
-                                Acara Penutupan dengan perkenalan Ormawa dan UKM, dilanjut dengan penampilan.
+                                Dokumentasi momen-momen seru dan tak terduga di balik layar pelaksanaan BIMARU 2026.
                             </p>
                         </div>
 
                         <div class="mt-auto pt-6 border-t border-white/10">
-                            <a href="https://photos.app.goo.gl/j1FnzBis7Adq9vPQ6" target="_blank"
+                            <a href="https://photos.app.goo.gl/id8LdHU4PTaBtLX38" target="_blank"
                                 rel="noopener noreferrer"
                                 class="group flex items-center justify-center w-full px-6 py-4 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/30 font-medium transition-all duration-300 hover:bg-amber-400 hover:text-slate-900 hover:shadow-[0_0_20px_rgba(251,191,36,0.3)]">
                                 <svg class="w-5 h-5 mr-3 transition-transform group-hover:scale-110" fill="none"
@@ -228,15 +433,7 @@
 
     <!-- AOS JS for Animations -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Adjust AOS settings for scroll snapping
-        AOS.init({
-            once: false, // Allow re-animating when scrolling back up
-            offset: 0,
-            duration: 800,
-            easing: 'ease-out-cubic',
-        });
-    </script>
+    <script src="panitia.js"></script>
 </body>
 
 </html>

@@ -22,14 +22,18 @@
     </div>
 
     <!-- Music Player (Pre-built iframe for most aggressive autoplay possible) -->
-    <iframe id="musicContainer" class="hidden" src="https://www.youtube.com/embed/3JMpCvdjaKY?enablejsapi=1&autoplay=1&loop=1&playlist=3JMpCvdjaKY" width="0" height="0" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+    <iframe id="musicContainer" class="hidden"
+        src="https://www.youtube.com/embed/3JMpCvdjaKY?enablejsapi=1&autoplay=1&loop=1&playlist=3JMpCvdjaKY" width="0"
+        height="0" frameborder="0" allow="autoplay; encrypted-media"></iframe>
 
     <!-- Floating Music Toggle Button -->
-    <button id="musicToggle" class="fixed bottom-6 right-6 z-50 w-12 h-12 bg-slate-900/50 text-amber-400 border border-amber-500/50 rounded-full flex items-center justify-center backdrop-blur-md hover:bg-amber-400 hover:text-slate-900 transition-all duration-300 shadow-[0_0_15px_rgba(251,191,36,0.2)] cursor-pointer">
+    <button id="musicToggle"
+        class="fixed bottom-6 right-6 z-50 w-12 h-12 bg-slate-900/50 text-amber-400 border border-amber-500/50 rounded-full flex items-center justify-center backdrop-blur-md hover:bg-amber-400 hover:text-slate-900 transition-all duration-300 shadow-[0_0_15px_rgba(251,191,36,0.2)] cursor-pointer">
         <svg id="icon-play" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M8 5v14l11-7z" />
         </svg>
-        <svg id="icon-pause" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg id="icon-pause" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
             <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
         </svg>
     </button>
@@ -50,7 +54,7 @@
 
         var player;
         var isPlaying = false;
-        
+
         function onYouTubeIframeAPIReady() {
             // Attach to the existing iframe to gain control over it
             player = new YT.Player('musicContainer', {
@@ -80,7 +84,7 @@
             }
         }
 
-        document.getElementById('musicToggle').addEventListener('click', function() {
+        document.getElementById('musicToggle').addEventListener('click', function () {
             if (player && typeof player.getPlayerState === 'function') {
                 if (isPlaying) {
                     player.pauseVideo();
