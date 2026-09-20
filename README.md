@@ -12,6 +12,7 @@ Portal ini dirancang dengan antarmuka yang sinematik dan elegan, memudahkan peng
 ### ✨ Fitur UI/UX Terbaru
 - **Animasi Ambient Background**: Efek *glow* emas yang melayang halus (Ambient Blobs).
 - **Floating Melody Notes**: Elemen musikal (not balok) yang mengambang di latar belakang sejalan dengan tema "Rhapsoria".
+- **Background Music Player**: Pemutar musik otomatis (dengan lagu "Cerita Kita - HalloHEXA") yang terintegrasi rapi di sudut kanan atas layar.
 - **Glassmorphism Interaktif**: Kartu transparan dengan efek *tilt*, *inner-glow*, dan perbesaran otomatis saat kursor diarahkan (*hover*).
 - **Responsive Mobile View**: Penyesuaian jarak vertikal (*padding*) pada perangkat *mobile* untuk memberikan ruang membaca yang nyaman.
 

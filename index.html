@@ -28,11 +28,12 @@
 
     <!-- Floating Music Toggle Button -->
     <button id="musicToggle"
-        class="fixed bottom-6 right-6 z-50 w-12 h-12 bg-slate-900/50 text-amber-400 border border-amber-500/50 rounded-full flex items-center justify-center backdrop-blur-md hover:bg-amber-400 hover:text-slate-900 transition-all duration-300 shadow-[0_0_15px_rgba(251,191,36,0.2)] cursor-pointer">
-        <svg id="icon-play" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        class="fixed top-6 right-6 z-50 px-4 h-12 bg-slate-900/50 text-amber-400 border border-amber-500/50 rounded-full flex items-center gap-3 backdrop-blur-md hover:bg-amber-400 hover:text-slate-900 transition-all duration-300 shadow-[0_0_15px_rgba(251,191,36,0.2)] cursor-pointer group">
+        <span class="text-sm font-medium whitespace-nowrap overflow-hidden text-ellipsis max-w-[150px] hidden sm:block">Cerita Kita - HalloHEXA</span>
+        <svg id="icon-play" class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M8 5v14l11-7z" />
         </svg>
-        <svg id="icon-pause" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24"
+        <svg id="icon-pause" class="w-5 h-5 hidden flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg">
             <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
         </svg>
@@ -93,6 +94,19 @@
                 }
             }
         });
+
+        // Attempt to play on first user interaction (browser autoplay policy workaround)
+        var firstInteraction = function() {
+            if (player && typeof player.playVideo === 'function' && !isPlaying) {
+                player.playVideo();
+            }
+            window.removeEventListener('click', firstInteraction);
+            window.removeEventListener('keydown', firstInteraction);
+            window.removeEventListener('touchstart', firstInteraction);
+        };
+        window.addEventListener('click', firstInteraction);
+        window.addEventListener('keydown', firstInteraction);
+        window.addEventListener('touchstart', firstInteraction);
 
         // Auto open curtain immediately when page is loaded
         window.addEventListener('load', function () {

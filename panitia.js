@@ -25,7 +25,7 @@ if (loginOverlay) {
             const pass = document.getElementById('password').value;
 
             // Default credentials: panitia / rhapsoria2026
-            if (user === 'panitia' && pass === '123') {
+            if (user === 'panitia' && pass === 'DaffaDzaki2026') {
                 sessionStorage.setItem('panitiaLoggedIn', 'true');
                 loginOverlay.style.opacity = '0';
                 setTimeout(() => {
