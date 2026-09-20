@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" class="master-html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIMARU 2026 - RHAPSORIA</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="BIMARU 2026 Photo Documentation Link Directory">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="master-body bg-slate-900">
+
+    <!-- Curtain Animation & Interaction -->
+    <div class="curtain-container" id="curtainContainer">
+        <div class="curtain curtain-left"></div>
+        <div class="curtain curtain-right"></div>
+    </div>
+
+    <!-- Music Player (Pre-built iframe for most aggressive autoplay possible) -->
+    <iframe id="musicContainer" class="hidden" src="https://www.youtube.com/embed/3JMpCvdjaKY?enablejsapi=1&autoplay=1&loop=1&playlist=3JMpCvdjaKY" width="0" height="0" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+
+    <!-- Floating Music Toggle Button -->
+    <button id="musicToggle" class="fixed bottom-6 right-6 z-50 w-12 h-12 bg-slate-900/50 text-amber-400 border border-amber-500/50 rounded-full flex items-center justify-center backdrop-blur-md hover:bg-amber-400 hover:text-slate-900 transition-all duration-300 shadow-[0_0_15px_rgba(251,191,36,0.2)] cursor-pointer">
+        <svg id="icon-play" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 5v14l11-7z" />
+        </svg>
+        <svg id="icon-pause" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+        </svg>
+    </button>
+
+    <!-- Main Content Frame (Loads the Portal first) -->
+    <iframe class="content-frame" src="portal.html" name="content_frame" title="BIMARU 2026 Content"></iframe>
+
+    <script>
+        // Load YouTube Iframe API
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0] || document.scripts[0];
+        if (firstScriptTag && firstScriptTag.parentNode) {
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        } else {
+            document.head.appendChild(tag);
+        }
+
+        var player;
+        var isPlaying = false;
+        
+        function onYouTubeIframeAPIReady() {
+            // Attach to the existing iframe to gain control over it
+            player = new YT.Player('musicContainer', {
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            // Force play again just in case the iframe attribute failed
+            event.target.playVideo();
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING) {
+                isPlaying = true;
+                document.getElementById('icon-play').classList.add('hidden');
+                document.getElementById('icon-pause').classList.remove('hidden');
+                document.getElementById('musicToggle').classList.add('animate-pulse');
+            } else {
+                isPlaying = false;
+                document.getElementById('icon-play').classList.remove('hidden');
+                document.getElementById('icon-pause').classList.add('hidden');
+                document.getElementById('musicToggle').classList.remove('animate-pulse');
+            }
+        }
+
+        document.getElementById('musicToggle').addEventListener('click', function() {
+            if (player && typeof player.getPlayerState === 'function') {
+                if (isPlaying) {
+                    player.pauseVideo();
+                } else {
+                    player.playVideo();
+                }
+            }
+        });
+
+        // Auto open curtain immediately when page is loaded
+        window.addEventListener('load', function () {
+            // Apply transitions inline to bypass aggressive CSS caching
+            var leftCurtain = document.querySelector('.curtain-left');
+            var rightCurtain = document.querySelector('.curtain-right');
+
+            if (leftCurtain && rightCurtain) {
+                leftCurtain.style.transition = 'transform 2.5s cubic-bezier(0.8, 0, 0.2, 1)';
+                rightCurtain.style.transition = 'transform 2.5s cubic-bezier(0.8, 0, 0.2, 1)';
+
+                // Force reflow
+                void leftCurtain.offsetWidth;
+
+                // Trigger animation immediately
+                leftCurtain.style.transform = 'translateX(-100%)';
+                rightCurtain.style.transform = 'translateX(100%)';
+
+                // Allow clicking through the container after animation ends
+                setTimeout(() => {
+                    var container = document.getElementById('curtainContainer');
+                    if (container) container.style.pointerEvents = 'none';
+                }, 2500);
+            }
+        });
+    </script>
+</body>
+
+</html>

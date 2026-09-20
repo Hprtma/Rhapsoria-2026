@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIMARU 2026 - Portal Masuk</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portal masuk dokumentasi BIMARU 2026">
+
+    <!-- Google Fonts: Playfair Display, Cinzel, & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                        cinzel: ['"Cinzel"', 'serif'],
+                    },
+                    colors: {
+                        amber: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body
+    class="portal-body min-h-screen font-sans antialiased relative selection:bg-amber-400 selection:text-slate-900 flex flex-col items-center justify-center">
+
+    <!-- Monochrome Photo Background -->
+    <div class="fixed inset-0 z-[-1] bg-cover bg-center bg-no-repeat grayscale opacity-15"
+        style="background-image: url('Assets/Portal.jpeg');"></div>
+
+    <!-- Cinematic Background Glow -->
+    <div class="fixed inset-0 pointer-events-none cinematic-glow z-0"></div>
+
+    <main class="relative z-10 w-full max-w-4xl px-4 flex flex-col items-center text-center">
+
+        <!-- Header -->
+        <header class="mb-12 animate-fade-in">
+            <div class="flex items-center justify-center gap-4 mb-6">
+                <div class="h-px w-12 sm:w-24 bg-gradient-to-r from-transparent to-amber-400/50"></div>
+                <span class="text-amber-400/80 uppercase tracking-[0.3em] text-xs font-semibold">Selamat Datang
+                    di</span>
+                <div class="h-px w-12 sm:w-24 bg-gradient-to-l from-transparent to-amber-400/50"></div>
+            </div>
+
+            <h1
+                class="text-4xl sm:text-6xl md:text-8xl font-cinzel font-bold text-amber-400 mb-4 drop-shadow-xl tracking-tight">
+                BIMARU 2026
+            </h1>
+
+            <p class="text-lg sm:text-xl text-slate-300 font-light tracking-widest uppercase">
+                Silakan Pilih Kategori Anda
+            </p>
+        </header>
+
+        <!-- Options Portal -->
+        <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl">
+
+            <!-- Option: Panitia -->
+            <a href="panitia.html"
+                class="group relative flex flex-col items-center p-8 bg-white/5 backdrop-blur-md border border-amber-500/20 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:border-amber-400/60 hover:-translate-y-2 hover:shadow-[0_10px_30px_-10px_rgba(251,191,36,0.3)] animate-fade-in delay-100">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl">
+                </div>
+                <div
+                    class="w-16 h-16 mb-4 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-400 border border-amber-500/30 group-hover:scale-110 transition-transform">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                        </path>
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-serif text-slate-100 group-hover:text-amber-400 transition-colors">Panitia</h2>
+                <p class="text-slate-400 text-sm mt-2 font-light">Dokumentasi eksklusif Panitia</p>
+            </a>
+
+            <!-- Option: Peserta Reguler -->
+            <a href="reguler.html"
+                class="group relative flex flex-col items-center p-8 bg-white/5 backdrop-blur-md border border-amber-500/20 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:border-amber-400/60 hover:-translate-y-2 hover:shadow-[0_10px_30px_-10px_rgba(251,191,36,0.3)] animate-fade-in delay-200">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl">
+                </div>
+                <div
+                    class="w-16 h-16 mb-4 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-400 border border-amber-500/30 group-hover:scale-110 transition-transform">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                        </path>
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-serif text-slate-100 group-hover:text-amber-400 transition-colors">Peserta
+                    Reguler</h2>
+                <p class="text-slate-400 text-sm mt-2 font-light">Kumpulan momen Mahasiswa Reguler</p>
+            </a>
+
+            <!-- Option: Peserta Karyawan -->
+            <a href="karyawan.html"
+                class="group relative flex flex-col items-center p-8 bg-white/5 backdrop-blur-md border border-amber-500/20 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:border-amber-400/60 hover:-translate-y-2 hover:shadow-[0_10px_30px_-10px_rgba(251,191,36,0.3)] animate-fade-in delay-300">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-amber-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl">
+                </div>
+                <div
+                    class="w-16 h-16 mb-4 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-400 border border-amber-500/30 group-hover:scale-110 transition-transform">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                        </path>
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-serif text-slate-100 group-hover:text-amber-400 transition-colors">Peserta
+                    Karyawan</h2>
+                <p class="text-slate-400 text-sm mt-2 font-light">Momen spesial Kelas Karyawan</p>
+            </a>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="absolute bottom-6 w-full text-center text-slate-500 text-xs animate-fade-in delay-300">
+        <p>&copy; 2026 BIMARU &mdash; Sie PDD</p>
+    </footer>
+
+</body>
+
+</html>

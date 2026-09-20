@@ -1,0 +1,147 @@
+/* Base styles */
+body {
+    background-color: #0f172a;
+    /* Deep midnight blue */
+    color: #f8fafc;
+}
+
+/* Scrollbar styling for pages with content */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #f59e0b;
+    border-radius: 4px;
+}
+
+/* Master Frame Specifics (index.html) */
+.master-html,
+.master-body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    /* Fallback */
+    height: 100dvh;
+    /* Modern mobile responsive */
+    overflow: hidden !important;
+}
+
+.content-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* Portal Specifics (portal.html) */
+.portal-body {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Cinematic radial gradients */
+.cinematic-glow {
+    background: radial-gradient(circle at 50% 30%, rgba(251, 191, 36, 0.15) 0%, rgba(15, 23, 42, 0) 60%);
+}
+
+/* Smooth hover transition for glass panels */
+.glass-card {
+    transition: all 0.4s ease;
+}
+
+.glass-card:hover {
+    box-shadow: 0 10px 30px -10px rgba(251, 191, 36, 0.2);
+    border-color: rgba(251, 191, 36, 0.6);
+    transform: translateY(-5px);
+}
+
+/* Entrance animation for Portal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.delay-100 {
+    animation-delay: 100ms;
+    opacity: 0;
+}
+
+.delay-200 {
+    animation-delay: 200ms;
+    opacity: 0;
+}
+
+.delay-300 {
+    animation-delay: 300ms;
+    opacity: 0;
+}
+
+/* Curtain Animation Styles */
+.curtain-container {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Removed pointer-events: none so the BUKA button is clickable */
+}
+
+.curtain {
+    position: absolute;
+    top: 0;
+    width: 50.5%;
+    /* Slightly overlap to prevent a gap */
+    height: 100%;
+    background-color: #881337;
+    /* Theater Red */
+    background-image: repeating-linear-gradient(to right,
+            #4c0519 0%,
+            #881337 5%,
+            #9f1239 10%,
+            #4c0519 15%);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 1);
+    transition: transform 2.5s cubic-bezier(0.8, 0, 0.2, 1);
+}
+
+.curtain-left {
+    left: 0;
+    border-right: 5px solid #fbbf24;
+    /* Gold trim */
+    box-shadow: inset -10px 0 20px rgba(0, 0, 0, 0.5);
+    transform-origin: left;
+}
+
+.curtain-right {
+    right: 0;
+    border-left: 5px solid #fbbf24;
+    /* Gold trim */
+    box-shadow: inset 10px 0 20px rgba(0, 0, 0, 0.5);
+    transform-origin: right;
+}
+
+/* Trigger classes added via JavaScript */
+.animate-open-left {
+    transform: translateX(-100%);
+}
+
+.animate-open-right {
+    transform: translateX(100%);
+}
